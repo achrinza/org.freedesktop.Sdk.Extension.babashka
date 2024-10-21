@@ -1,0 +1,28 @@
+id: org.freedesktop.Sdk.Extension.babashka
+branch: '23.08'
+runtime: org.freedesktop.Sdk
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+build-extension: true
+separate-locales: false
+appstream-compose: false
+modules:
+  - name: babashka
+    buildsystem: simple
+    sources:
+      - type: file
+        url: https://github.com/babashka/babashka/releases/download/v1.12.194/babashka-1.12.194-linux-amd64.tar.gz
+        sha256: 19cb609ef2e8a91f832cf9a41752e8647b061cb420b2bf2b608754f041e35674
+    build-commands:
+      - tar -xzf babashka-1.12.194-linux-amd64.tar.gz
+      - mkdir ${FLATPAK_DEST}/bin
+      - install -Dm755 bb ${FLATPAK_DEST}/bin
+  - name: scripts
+    buildsystem: simple
+    sources:
+      - type: script
+        commands:
+          - export PATH=$PATH:/usr/lib/sdk/babashka/bin
+        dest-filename: enable.sh
+    build-commands:
+      - install -Dm755 enable.sh ${FLATPAK_DEST}/
