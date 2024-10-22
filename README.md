@@ -15,3 +15,8 @@ $ flatpak --user run org.flatpak.Builder \
     builddir \
     org.freedesktop.Sdk.Extension.babashka.yaml
 ```
+
+## License
+
+[FSAP](./LICENSES/FSAP)
+
