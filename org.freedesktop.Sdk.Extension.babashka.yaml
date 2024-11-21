@@ -19,6 +19,8 @@ modules:
     build-commands:
       - mkdir -p "$FLATPAK_DEST/lib"
       - cp -ar . "$FLATPAK_DEST/lib/graalvm23"
+    cleanup:
+      - "*"
   - name: babashka
     buildsystem: simple
     sources:
@@ -36,8 +38,6 @@ modules:
       - ./script/uberjar
       - ./script/compile
       - install -Dm755 bb "$FLATPAK_DEST/bin/bb"
-    cleanup:
-      - lib/graalvm23
   - name: scripts
     buildsystem: simple
     sources:
