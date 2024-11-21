@@ -18,5 +18,5 @@ $ flatpak --user run org.flatpak.Builder \
 
 ## License
 
-[FSAP](./LICENSES/FSAP)
+[FSFAP](./LICENSES/FSFAP)
 
