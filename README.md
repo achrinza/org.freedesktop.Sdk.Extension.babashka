@@ -1,5 +1,11 @@
 # Babashka Flatpak
 
+# Setup
+
+## Prerequisites
+
+- [`org.freedesktop.Sdk.Extension.leiningen`](https://git.sr.ht/~achrinza/org.freedesktop.Sdk.Extension.leiningen)
+
 To build and install it:
 
 ```sh
@@ -8,13 +14,14 @@ To build and install it:
 $ flatpak --user install org.flatpak.Builder
 $ flatpak --user run org.flatpak.Builder \
     --force-clean \
-    --sandbox \
     --user \ # Remove this line to install system-wide
     --install \
     --ccache \
     builddir \
     org.freedesktop.Sdk.Extension.babashka.yaml
 ```
+
+Building with the `--sandbox` flag is not supported.
 
 ## License
 
